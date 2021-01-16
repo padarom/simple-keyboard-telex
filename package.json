@@ -1,0 +1,66 @@
+{
+  "name": "simple-keyboard-vietnamese-telex",
+  "version": "2.2.88",
+  "description": "Vietnamese Telex input method module for simple-keyboard",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "test": "jest",
+    "prepare": "npm run build",
+    "trypublish": "npm publish || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/padarom/simple-keyboard-telex"
+  },
+  "author": "Christopher Mühl <christopher@padarom.xyz>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/padarom/simple-keyboard-telex/issues"
+  },
+  "keywords": [
+    "vietnamese",
+    "telex",
+    "input-method",
+    "javascript",
+    "es6",
+    "digital",
+    "keyboard",
+    "onscreen",
+    "virtual",
+    "component",
+    "virtual-keyboard",
+    "touchscreen",
+    "touch-screen",
+    "layout",
+    "keyboard-layout"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
+    "babel-loader": "^8.1.0",
+    "babel-preset-minify": "^0.5.0",
+    "fuzzyset.js": "1.0.6",
+    "css-loader": "^5.0.0",
+    "file-loader": "^6.0.0",
+    "jest": "^26.1.0",
+    "prettier": "^1.19.1",
+    "prettier-webpack-plugin": "^1.2.0",
+    "simple-keyboard": "2.32.80",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^4.0.0"
+  },
+  "dependencies": {},
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/scripts/testMock.js",
+      "\\.(css|less)$": "<rootDir>/scripts/testMock.js"
+    }
+  }
+}
