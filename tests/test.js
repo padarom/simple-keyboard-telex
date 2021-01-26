@@ -1,4 +1,4 @@
-import { cleanChar, addAccent } from '../src/utils'
+import { cleanChar, addAccent, getAccent } from '../src/utils'
 
 test('cleanChar()', () => {
   expect(cleanChar('à')).toBe('a')
@@ -9,7 +9,15 @@ test('cleanChar()', () => {
 })
 
 test('addAccent()', () => {
-  expect(addAccent('a', 'f')).toBe('à')
+  expect(addAccent('a', 'huyen')).toBe('à')
+  expect(addAccent('Y', 'sac')).toBe('Ý')
+  expect(addAccent('ư', 'nang')).toBe('ự')
+})
+
+test('getAccent()', () => {
+  expect(getAccent('a')).toBe(null)
+  expect(getAccent('à')).toBe('huyen')
+  expect(getAccent('Ỡ')).toBe('nga')
 })
 
 /*
