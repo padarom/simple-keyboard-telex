@@ -1,4 +1,4 @@
-import { cleanChar } from './utils'
+import { cleanChar } from "./utils";
 
 class SimpleKeyboardVietnameseTelex {
   init = keyboard => {
@@ -22,7 +22,7 @@ class SimpleKeyboardVietnameseTelex {
       // ươ -> Gruppe (wie einzelner Vokal)
 
       // ----       ----
-      // Konsonant       
+      // Konsonant
       //            Obere Gruppe aus Linns Liste (horizontale Headline)
 
       // Am Wortende sind nur
@@ -38,7 +38,7 @@ class SimpleKeyboardVietnameseTelex {
         r: "\u0309", // ả, ẻ, ỉ, ỏ, ủ, ỷ
         x: "\u0303", // ã, ẽ, ĩ, õ, ũ, ỹ
         j: "\u0323", // ạ, ẹ, ị, ọ, ụ, ỵ
-        w: "\u031b"  // ă,       ơ, ư
+        w: "\u031b" // ă,       ơ, ư
       };
       const breve = "\u0306";
       const circumflex = "\u0302";
@@ -54,7 +54,7 @@ class SimpleKeyboardVietnameseTelex {
       // 5. uyt, uych, uynh Akzent auf y (wie bei uya)
       // 6. ê und ơ können nur auf u folgen
       // 7. Nur ein Dach pro Wort
-      // 8. Nur 
+      // 8. Nur
       // 7. Wenn auf t oder p endet, nur uýt und uỵt möglich
 
       module.fn = {};

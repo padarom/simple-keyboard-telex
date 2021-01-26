@@ -30,6 +30,21 @@ const ACCENT_MAP = {
   nang:  'ạ ặ ậ Ạ Ặ Ậ ẹ ệ Ẹ Ệ ị Ị ọ ộ ợ Ọ Ộ Ợ ụ ự Ụ Ự ỵ Ỵ',
 }
 
+const VALID_STARTING_CONSONANTS = [
+  'b', 'c', 'd', 'đ', 'g', 'gh', 'h', 'k', 'l', 'm', 'n', 'r', 's', 't', 'v', 'x',
+  'ch', 'gi', 'kh', 'nh', 'ngh', 'ph', 'qu', 'th', 'tr'
+]
+
+const VALID_ENDINGS = [
+  'c', 'ch', 'm', 'n', 'nh', 'ng', 'p', 't', 'a', 'e', 'ê', 'i', 'o', 'ơ', 'u', 'y'
+]
+
+const start = `(${VALID_STARTING_CONSONANTS.join('|')})`
+const end = `(${VALID_ENDINGS.join('|')})`
+const vowels = Object.values(ACCENTED_CHARACTERS).join('').replace(/ /g, '').replace(/[dđ]/gi, '')
+
+const VALID_WORD = new RegExp(`^${start}?[${vowels}]+${end}?$`)
+
 export const cleanChar = (character) => {
   for (let vowel of ACCENTED_CHARACTERS) {
     let regex = new RegExp(`[${vowel.replace(/ /g, '').slice(1)}]`)
@@ -40,8 +55,9 @@ export const cleanChar = (character) => {
   return character
 }
 
+// NOTE: Unterstützt alle Vokale, aber nur ohne Akzente
 export const isVowel = (character) => {
-  return 'aăâĂÂeêÊiIoôÔơƠuưƯyY'.indexOf(character) !== -1
+  return 'aăâAĂÂeêEÊiIoôOÔơƠuUưƯyY'.indexOf(character) !== -1
 }
 
 export const addAccent = (character, modifier) => {
@@ -60,4 +76,27 @@ export const getAccent = (word) => {
   }
 
   return null
+}
+
+export const addCharacter = (word, character) => {
+  // Wir brauchen keine Logik, wenn kein Modifikator geklickt wurde
+  if ('wsfrxjdoeaWSFRXJDOEA'.indexOf(character) !== -1) return `${word}${character}`
+
+  switch (character) {
+    case 'w':
+      break
+    case 'a':
+      break
+    case 'e':
+      break
+    case 'o':
+      break
+    case 'd':
+      break
+  }
+
+  if (word.split('').every(character => !isVowel(cleanChar(character)))) return `${word}${character}`
+
+  //
+  return `${word}+${character}`
 }

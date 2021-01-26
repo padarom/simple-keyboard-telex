@@ -1,5 +1,55 @@
-import { cleanChar, addAccent, getAccent } from '../src/utils'
+import { cleanChar, addAccent, getAccent, addCharacter } from '../src/utils'
 
+test('addCharacter()', () => {
+  // TODO: Add uppercase variants
+
+  const matches = [
+    // Modified vowels
+    'a',    'w',   'ă',
+    'ac',   'w',   'ăc',
+    'am',   'w',   'ăm',
+    'an',   'w',   'ăn',
+    'ang',  'w',   'ăng',
+    'ap',   'w',   'ăp',
+    'at',   'w',   'ăt',
+    'a',    'a',   'â', 
+    'ac',   'a',   'âc',
+    'am',   'a',   'âm',
+    'an',   'a',   'ân',
+    'ang',  'a',   'âng',
+    'ap',   'a',   'âp',
+    'at',   'a',   'ât',
+    'e',    'e',   'ê',
+    'o',    'o',   'ô',
+    'o',    'w',   'ơ',
+    'u',    'w',   'ư',
+    'ie',   'e',   'iê',
+    'oa',   'w',   'oă',
+    'ua',   'a',   'uâ',
+    'uo',   'o',   'uô',
+    'uye',  'e',   'uyê',
+    'uo',   'w',   'ươ',
+    'ye',   'e',   'yê',
+
+    //
+    'ươ',   'o',   'uô',
+    'uô',   'w',   'ươ',
+    'ưo',   'c',   'ươc', 
+    'yen',  'e',   'yên',
+    'yem',  'e',   'yêm',
+    'yeu',  'e',   'yêu',
+  ]
+
+
+
+  for (let i = 0; i < matches.length / 3; i++) {
+    let [word, character, expected] = matches.slice(i * 3, i * 3 + 3)
+
+    expect(addCharacter(word, character)).toBe(expected)
+  }
+})
+
+/*
 test('cleanChar()', () => {
   expect(cleanChar('à')).toBe('a')
   expect(cleanChar('Ằ')).toBe('A')
@@ -19,6 +69,7 @@ test('getAccent()', () => {
   expect(getAccent('à')).toBe('huyen')
   expect(getAccent('Ỡ')).toBe('nga')
 })
+*/
 
 /*
 import Keyboard from 'simple-keyboard';
